@@ -39,7 +39,9 @@
     <!-- Login Section -->
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card p-4 shadow-lg" style="width: 400px;">
-            <h3 class="text-center mb-4">Login to UrbanTable</h3>
+        <h3 style="font-weight: bold; font-family: 'Georgia', 'Times New Roman', serif; color: #8B0000; background: linear-gradient(to right, #8B0000, #000000); 
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);">Login to UrbanTable</h3>
+
             
         <form method="POST" action="{{ route('login') }}">
         @csrf

@@ -5,9 +5,9 @@
             <div class="col-md-4 my-3 my-md-0">
                 <div class="testmonial-card">
                     <h3 class="testmonial-title">Abir</h3>
-                    <h6 class="testmonial-subtitle">Zero knowledge Guy</h6>
+                    <h6 class="testmonial-subtitle">aaaaaaaaa</h6>
                     <div class="testmonial-body">
-                        <p>Trying my best to be better</p>
+                        <p>good</p>
                     </div>
                 </div>
             </div>
@@ -16,16 +16,16 @@
                     <h3 class="testmonial-title">Efaz</h3>
                     <h6 class="testmonial-subtitle">The Ctg Boy</h6>
                     <div class="testmonial-body">
-                        <p>Kam koro tk kamao</p>
+                        <p>good </p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 my-3 my-md-0">
                 <div class="testmonial-card">
                     <h3 class="testmonial-title">Maruf</h3>
-                    <h6 class="testmonial-subtitle">Chill Guy</h6>
+                    <h6 class="testmonial-subtitle">aaaaa</h6>
                     <div class="testmonial-body">
-                        <p>Bindas Jibon</p>
+                        <p>good</p>
                     </div>
                 </div>
             </div>
