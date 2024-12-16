@@ -23,9 +23,9 @@
                 <span class="brand-txt">Urban Table</span>
             </a>
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#blog">Blog<span class="sr-only">(current)</span></a>
-                </li>
+                </li> -->
 
                 @if (Route::has('login'))
 

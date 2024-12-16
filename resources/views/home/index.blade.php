@@ -29,7 +29,7 @@
     <!-- google maps -->
     <script async defer src="https:maps/place/BRAC+University/@23.7730866,90.423981,18.21z/data=!4m14!1m7!3m6!1s0x3755c7715a40c603:0xec01cd75f33139f5!2sBRAC+University!8m2!3d23.7725001!4d90.4252945!16s%2Fg%2F120vm_vk!3m5!1s0x3755c7715a40c603:0xec01cd75f33139f5!8m2!3d23.7725001!4d90.4252945!16s%2Fg%2F120vm_vk?entry=ttu&g_ep=EgoyMDI0MTIwOC4wIKXMDSoASAFQAw%3D%3D"></script>
 
-    <!-- FoodHut js -->
+    <!-- urban Table js -->
     <script src="assets/js/urbantable.js"></script>
 
 </body>
