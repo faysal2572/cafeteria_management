@@ -30,7 +30,7 @@
         @endsession     
     <!-- Navbar -->
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="{{route('homee')}}">
+        <a class="navbar-brand" href="#">
             <img src="assets/imgs/logo2.png" class="brand-img" alt="">
             <span class="brand-txt">Food Hut</span>
         </a>
