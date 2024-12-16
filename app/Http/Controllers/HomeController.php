@@ -67,4 +67,7 @@ class HomeController extends Controller
     public function my_cart(){
         return view('home.my_cart');
     }
+    public function home(){
+        return view('home.index');
+    }
 }

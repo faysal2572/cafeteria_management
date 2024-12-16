@@ -18,11 +18,8 @@
 
 
 <body id="login-page">   
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+
+
 
         <x-validation-errors class="mb-4" />
 
@@ -33,7 +30,7 @@
         @endsession     
     <!-- Navbar -->
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{route('homee')}}">
             <img src="assets/imgs/logo2.png" class="brand-img" alt="">
             <span class="brand-txt">Food Hut</span>
         </a>
@@ -85,8 +82,7 @@
                 <a href="/forgot-password" class="text-primary">Forgot your password?</a>
             </p>
         </form>
-            </x-authentication-card>
-            </x-guest-layout>
+
         </div>
     </div>
 
