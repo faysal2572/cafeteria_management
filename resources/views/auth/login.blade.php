@@ -8,12 +8,12 @@
     <title>Urban Table | Login</title>
    
     <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/themify-icons/css/themify-icons.css') }}">
 
-    <link rel="stylesheet" href="assets/vendors/animate/animate.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.css') }}">
 
     <!-- Bootstrap + UrbanTable main styles -->
-	<link rel="stylesheet" href="assets/css/urbantable.css">
+	<link rel="stylesheet" href="{{ asset('assets/css/urbantable.css') }}">
 </head>
 
 
@@ -30,8 +30,8 @@
         @endsession     
     <!-- Navbar -->
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="assets/imgs/logo2.png" class="brand-img" alt="">
+        <a class="navbar-brand" href="{{ url('/home') }}">
+            <img src="{{ asset('assets/imgs/logo2.png') }}" class="brand-img" alt="">
             <span class="brand-txt">Food Hut</span>
         </a>
     </nav>
@@ -72,7 +72,6 @@
                 {{ __('Log in') }}
             </x-button>
             </div>
-            
             
 
             <!-- Additional Links -->

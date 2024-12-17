@@ -9,6 +9,7 @@ use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Str;
+
 class HomeController extends Controller
 {
     
@@ -32,6 +33,10 @@ class HomeController extends Controller
             {
                 return view("admin.index");
             }
+        }
+        else {
+            $data = Food::all();
+            return view("home.index", compact('data'));
         }
     }
     
