@@ -29,7 +29,7 @@
 
         <!-- Navbar -->
         <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{url('/home')}}">
             <img src="assets/imgs/logo2.png" class="brand-img" alt="UrbanTable Logo">
             <span class="brand-txt">UrbanTable</span>
         </a>
