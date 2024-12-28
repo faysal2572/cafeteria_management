@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Order;
+
+use App\Models\Book;
+
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -70,4 +74,22 @@ class HomeController extends Controller
     public function home(){
         return view('home.index');
     }
+
+
+    public function book_table(Request $request)
+    {
+        $data = new Book;
+        
+        $data->phone = $request->phone;
+        $data->guest = $request->n_guest;
+        $data->date = $request->date;
+        $data->time = $request->time;
+
+        $data->save();
+
+        return redirect()->back();
+    }
+
+
+
 }
