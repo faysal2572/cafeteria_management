@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Book;
+use App\Models\Order;
 
 
 class AdminController extends Controller
@@ -66,5 +68,13 @@ class AdminController extends Controller
         return redirect()->back();
 
 
+    }
+
+    public function reservations()
+    {
+
+        $book = Book::all();
+        
+        return view('admin.reservation',compact('book'));
     }
 }

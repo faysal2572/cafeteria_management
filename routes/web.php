@@ -34,6 +34,7 @@ Route::get('/my_cart',[HomeController::class,'my_cart']);
 
 Route::post('/book_table',[HomeController::class,'book_table']);
 
+Route::get('/reservations',[AdminControllerr::class,'reservations']);
 
 
 
