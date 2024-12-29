@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
-route::get("/",[HomeController::class,'my_home']);
+Route::get("/",[HomeController::class,'my_home']);
 
 Route::get('/home',[HomeController::class,'index']);
 
@@ -27,24 +27,11 @@ Route::get('/update_food/{id}',[AdminController::class,'update_food']);
 Route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
 Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('/my_cart',[HomeController::class,'my_cart']);
-<<<<<<< HEAD
 Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
-// Route::get('/homee',[HomeController::class,'my_home']);
-
-
-
-=======
-#Route::get('/home',[HomeController::class,'home']);
-
-Route::get('/orders',[AdminController::class,'orders']);
->>>>>>> 460007371d0d0deee0347ab3ba480b48ee316e50
-
 
 Route::post('/book_table',[HomeController::class,'book_table']);
 
-Route::get('/reservations',[AdminControllerr::class,'reservations']);
-
-
+Route::get('/reservations',[AdminController::class,'reservations']);
 
 
 Route::middleware([
