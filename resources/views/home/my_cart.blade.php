@@ -95,42 +95,45 @@
                 <th>Food Title</th>
                 <th>Food Price</th>
                 <th>Quantity</th>
+                <th>Total</th>
                 <th>Image</th>
                 <th>Remove</th>
             </tr>
 
-            <?php 
-            
-            $total_price  = 0;
-            
-            ?>
-
-            @foreach($data as $data)
+            @foreach($cart_items as $item)
             <tr>
-                <td>{{$data->title}}</td>
-                <td>{{$data->price}}</td>
-                <td>{{$data->quantity}}</td>
-                <td>
-                    <img width="150" src="food_img/{{$data->image}}" alt="">
-                </td>
-
-                <td>
-                    <a onclick="return confirm('Are you sure to remove this?')" class="btn btn-danger" href="{{url('remove_cart',$data->id)}}">Remove</a>
-                </td>
+                <td>{{$item->title}}</td>
+                <td>${{$item->price}}</td>
+                <td>{{$item->quantity}}</td>
+                <td>${{$item->price * $item->quantity}}</td>
+                <td><img height="100" width="100" src="food_img/{{$item->image}}"></td>
+                <td><a class="btn btn-danger" href="{{url('remove_cart',$item->id)}}">Remove</a></td>
             </tr>
-            
-            <?php 
-            
-            $total_price = $total_price + $data->price;
-            
-            ?>
-
             @endforeach
+
+            <tr>
+                <td colspan="3" style="text-align: right;"><strong>Total Price:</strong></td>
+                <td colspan="3"><strong>${{$total_price}}</strong></td>
+            </tr>
         </table>
 
-        <h3>Total Price for the Cart {{$total_price}}</h3>
+        @if(count($cart_items) > 0)
+        <div style="padding: 10px; display: flex; justify-content: center; gap: 10px;">
+            <form action="{{url('confirm_order')}}" method="POST">
+                @csrf
+                <input type="submit" class="btn btn-primary" value="Confirm Order">
+            </form>
+            <a href="#" class="btn btn-danger" onclick="handlePayment()">Pay Now</a>
+        </div>
 
-
+        <script>
+            function handlePayment() {
+                // You can customize this function to integrate with your payment gateway
+                alert('Redirecting to payment gateway...');
+                // Add your payment gateway integration code here
+            }
+        </script>
+        @endif
     </div>
 
 	<!-- core  -->

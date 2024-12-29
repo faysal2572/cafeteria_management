@@ -4,14 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
-<<<<<<< HEAD
 use App\Models\Order;
 use App\Models\Book;
-=======
-use App\Models\Book;
-use App\Models\Order;
-
->>>>>>> sub_branch_1
 
 class AdminController extends Controller
 {
@@ -32,7 +26,7 @@ class AdminController extends Controller
         }
         $data->title = $request->title;
         $data->price = $request->price;
-        $data->description = $request->description;
+        $data->details = $request->description;
 
         $data->save();
         return redirect()->back();
@@ -41,7 +35,7 @@ class AdminController extends Controller
     public function view_food()
     {
         $data = Food::all();
-        return view('admin.view_food',compact('data'));
+        return view('admin.show_food',compact('data'));
     }
 
     public function delete_food($id)
@@ -74,7 +68,7 @@ class AdminController extends Controller
         }
         $data->title = $request->title;
         $data->price = $request->price;
-        $data->description = $request->description;
+        $data->details = $request->description;
 
         $data->save();
         return redirect()->back();
@@ -113,20 +107,6 @@ class AdminController extends Controller
     public function reservations()
     {
         $book = Book::all();
-        return view('admin.reservation',compact('book'));
-    }
-
-    public function orders()
-    {
-        $data = Order::all();
-        return view('admin.order',compact('data'));
-    }
-
-    public function reservations()
-    {
-
-        $book = Book::all();
-
         return view('admin.reservation',compact('book'));
     }
 }

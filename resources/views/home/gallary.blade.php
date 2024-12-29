@@ -3,76 +3,27 @@
         <h2 class="section-title">OUR MENU</h2>
     </div>
     <div class="gallary row">
+        @if(isset($foods) && count($foods) > 0)
+        @foreach($foods as $food)
         <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-1.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
+            <img src="foodimage/{{ $food->image }}" alt="{{ $food->title }}" class="gallary-img">
+            <div class="gallary-overlay">
+                <h4>{{ $food->title }}</h4>
+                <p>{{ $food->details }}</p>
+                <p>Price: ${{ $food->price }}</p>
+                <form action="{{ url('add_cart', $food->id) }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input type="number" name="quantity" value="1" min="1" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+            </div>
         </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-2.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
+        @endforeach
+        @else
+        <div class="col-12 text-center">
+            <p>No food items available</p>
         </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-3.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-4.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-5.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-6.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-7.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-8.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-9.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-10.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-11.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
-            <img src="assets/imgs/gallary-12.jpg" alt="template by DevCRID http://www.devcrud.com/" class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
+        @endif
     </div>

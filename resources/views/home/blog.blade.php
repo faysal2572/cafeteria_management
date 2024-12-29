@@ -8,20 +8,20 @@
 
 
 
-                @foreach ($data as $data )
+                @foreach ($foods as $food )
                 
 
                     <div class="col-md-4">
                         <div class="card bg-transparent border my-3 my-md-0">
-                            <img height="300" src="food_img/{{$data->image}}" class="rounded-0 card-img-top mg-responsive">
+                            <img height="300" src="food_img/{{$food->image}}" class="rounded-0 card-img-top mg-responsive">
                             <div class="card-body">
-                                <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{$data->price}}</a></h1>
-                                <h4 class="pt20 pb20">{{$data->title}} </h4>
-                                <p class="text-white">{{$data->details}} </p>
+                                <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{$food->price}}</a></h1>
+                                <h4 class="pt20 pb20">{{$food->title}} </h4>
+                                <p class="text-white">{{$food->details}} </p>
                             </div>
 
 
-                    <form action="{{url('add_cart',$data->id)}}" method="post" >
+                    <form action="{{url('add_cart',$food->id)}}" method="post" >
                     @csrf    
                                 <input value="1" type="number" min="1" required name="qty" >
                                 <input type="submit" value="Add to Cart" class="btn btn-info" >  
