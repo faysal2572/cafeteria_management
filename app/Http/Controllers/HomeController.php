@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Order;
+<<<<<<< HEAD
 use App\Models\Book;
+=======
+
+use App\Models\Book;
+
+>>>>>>> sub_branch_1
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -27,8 +33,16 @@ class HomeController extends Controller
             else
             {
                 $total_user = User::where('usertype','=','user')->count();
+<<<<<<< HEAD
                 $total_food = Food::count();
                 $total_order = Order::count();
+=======
+
+                $total_food = Food::count();
+
+                $total_order = Order::count();
+
+>>>>>>> sub_branch_1
                 $total_delivered = Order::where('delivery_status','=','Delivered')->count();
 
                 return view("admin.index",compact('total_user','total_food','total_order','total_delivered'));
@@ -120,4 +134,22 @@ class HomeController extends Controller
         
         return redirect()->back();
     }
+
+
+    public function book_table(Request $request)
+    {
+        $data = new Book;
+
+        $data->phone = $request->phone;
+        $data->guest = $request->n_guest;
+        $data->date = $request->date;
+        $data->time = $request->time;
+
+        $data->save();
+
+        return redirect()->back();
+    }
+
+
+
 }

@@ -3,6 +3,7 @@
   <head> 
     @include('admin.css')
 <<<<<<< HEAD
+<<<<<<< HEAD
     <style>
         table
         {
@@ -32,6 +33,8 @@
         }
     </style>
 =======
+=======
+>>>>>>> sub_branch_1
 
     <style>
         table
@@ -58,7 +61,10 @@
             text-align:center;
             padding:10px;
         }
+<<<<<<< HEAD
 >>>>>>> Maruf_22101132
+=======
+>>>>>>> sub_branch_1
   </head>
   <body>
         @include("admin.header")
@@ -71,6 +77,7 @@
         <div class="page-header">
           <div class="container-fluid">
           
+<<<<<<< HEAD
 <<<<<<< HEAD
           <table>
             <tr>
@@ -116,6 +123,8 @@
         </div>
       </div>
 =======
+=======
+>>>>>>> sub_branch_1
         <table>
             <tr>
                 <th>Customer Name</th>
@@ -153,7 +162,10 @@
         </div>
       </div>
       <!-- JavaScript files-->
+<<<<<<< HEAD
 >>>>>>> Maruf_22101132
+=======
+>>>>>>> sub_branch_1
     @include('admin.js')
   </body>
 </html>

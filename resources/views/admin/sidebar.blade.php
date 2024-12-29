@@ -20,6 +20,7 @@
                   </ul>
                 </li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <li><a href="{{url('orders')}}"> <i class="icon-logout"></i>Orders </a></li>
         </ul><span class="heading">Extras</span>
         <ul class="list-unstyled">
@@ -28,12 +29,17 @@
           <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
         </ul>
 =======
+=======
+>>>>>>> sub_branch_1
                 <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
                 <li><a href="{{url('orders')}}"><i class="icon-logout"></i>Orders</a></li>
                 <li><a href="{{url('reservations')}}">Reservations</a></li>
 
                 
         
+<<<<<<< HEAD
 >>>>>>> Maruf_22101132
+=======
+>>>>>>> sub_branch_1
       </nav>
       <!-- Sidebar Navigation end-->
