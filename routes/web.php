@@ -28,11 +28,8 @@ Route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
 Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('/my_cart',[HomeController::class,'my_cart']);
 Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
-
 Route::post('/book_table',[HomeController::class,'book_table']);
-
 Route::get('/reservations',[AdminController::class,'reservations']);
-
 
 Route::middleware([
     'auth:sanctum',
