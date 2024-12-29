@@ -2,6 +2,7 @@
 <html>
   <head> 
     @include('admin.css')
+<<<<<<< HEAD
     <style>
         table
         {
@@ -30,6 +31,34 @@
             
         }
     </style>
+=======
+
+    <style>
+        table
+        {
+            border: 1px solid skyblue;
+            margin: auto;
+            width: 1000px;
+        }
+
+        th 
+        {
+            color:white;
+            font-weight:bold;
+            font-size:18px;
+            text-align:center;
+            background-color:red;
+            padding:10px;
+        }
+
+        td 
+        {
+            color:white;
+            font-weight:bold;
+            text-align:center;
+            padding:10px;
+        }
+>>>>>>> Maruf_22101132
   </head>
   <body>
         @include("admin.header")
@@ -42,6 +71,7 @@
         <div class="page-header">
           <div class="container-fluid">
           
+<<<<<<< HEAD
           <table>
             <tr>
               <th>Customer Name</th>
@@ -85,6 +115,45 @@
           </div>
         </div>
       </div>
+=======
+        <table>
+            <tr>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>phone</th>
+                <th>Address</th>
+                <th>Food Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Status</th>
+            </tr>
+
+            @foreach($data as $data)
+
+            <tr>
+                <td>{{$data->name}}</td>
+                <td>{{$data->email}}</td>
+                <td>{{$data->phone}}</td>
+                <td>{{$data->address}}</td>
+                <td>{{$data->title}}</td>
+                <td>{{$data->quantity}}</td>
+                <td>{{$data->price}}</td>
+                <td>
+                    <img width="100" src="food_img/{{$data->image}}" alt="">
+                </td>
+                <td>{{$data->delivery_status}}</td>
+            </tr>
+
+            @endforeach
+
+        </table>
+
+          </div>
+        </div>
+      </div>
+      <!-- JavaScript files-->
+>>>>>>> Maruf_22101132
     @include('admin.js')
   </body>
 </html>
