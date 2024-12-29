@@ -36,16 +36,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="{{url('/#about')}}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#gallary">Gallary</a>
+                    <a class="nav-link" href="{{url('/#gallary')}}">Gallary</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#book-table">Book-Table</a>
+                    <a class="nav-link" href="{{url('/#book-table')}}">Book-Table</a>
                 </li>
             </ul>
             <a class="navbar-brand m-auto" href="#">
@@ -90,6 +90,7 @@
     </br> </br> </br> </br>
 
     <div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
+        @if(count($data) > 0)
         <table>
             <tr>
                 <th>Food Title</th>
@@ -99,11 +100,7 @@
                 <th>Remove</th>
             </tr>
 
-            <?php 
-            
-            $total_price  = 0;
-            
-            ?>
+            <?php $total_price = 0; ?>
 
             @foreach($data as $data)
             <tr>
@@ -113,24 +110,40 @@
                 <td>
                     <img width="150" src="food_img/{{$data->image}}" alt="">
                 </td>
-
                 <td>
                     <a onclick="return confirm('Are you sure to remove this?')" class="btn btn-danger" href="{{url('remove_cart',$data->id)}}">Remove</a>
                 </td>
             </tr>
             
-            <?php 
-            
-            $total_price = $total_price + $data->price;
-            
-            ?>
-
+            <?php $total_price = $total_price + $data->price; ?>
             @endforeach
+
+            <h3 style="margin-top: 20px;">Total Price: ${{$total_price}}</h3>
+
+            <div class="payment-buttons" style="margin: 20px;">
+                <form action="{{ url('cash_payment') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn" style="background-color: red; color: white; margin: 10px; padding: 10px 30px; font-size: 16px;">Cash Payment</button>
+                </form>
+
+                <form action="{{ url('card_payment_page') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary" style="margin: 10px; padding: 10px 30px; font-size: 16px;">Card Payment</button>
+                </form>
+            </div>
         </table>
-
-        <h3>Total Price for the Cart {{$total_price}}</h3>
-
-
+        @else
+            @if(session()->has('message'))
+                <div class="alert alert-success" style="margin: 20px; padding: 20px;">
+                    {{ session()->get('message') }}
+                </div>
+            @else
+                <div style="padding: 50px;">
+                    <h3>Your cart is empty</h3>
+                    <a href="{{url('/')}}" class="btn btn-primary" style="margin-top: 20px;">Continue Shopping</a>
+                </div>
+            @endif
+        @endif
     </div>
 
 	<!-- core  -->

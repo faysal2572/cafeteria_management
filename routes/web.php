@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentController;
 
 Route::get("/",[HomeController::class,'my_home']);
 
@@ -26,7 +27,7 @@ Route::get('/delete_food/{id}',[AdminController::class,'delete_food']);
 Route::get('/update_food/{id}',[AdminController::class,'update_food']);
 Route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
 Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
-Route::get('/my_cart',[HomeController::class,'my_cart']);
+Route::get('/my_cart',[HomeController::class,'my_cart'])->name('my_cart');
 Route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
 Route::post('/book_table',[HomeController::class,'book_table']);
 Route::get('/reservations',[AdminController::class,'reservations']);
@@ -39,4 +40,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::post('/cash_payment', [PaymentController::class, 'cashPayment']);
+    Route::post('/card_payment_page', [PaymentController::class, 'showCardPayment']);
+    Route::post('/process_card_payment', [PaymentController::class, 'processCardPayment']);
 });
