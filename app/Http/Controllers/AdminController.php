@@ -70,11 +70,17 @@ class AdminController extends Controller
 
     }
 
+    public function orders()
+    {
+        $data = Order::all();
+        return view('admin.order',compact('data'));
+    }
+
     public function reservations()
     {
 
         $book = Book::all();
-        
+
         return view('admin.reservation',compact('book'));
     }
 }

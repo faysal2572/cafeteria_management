@@ -27,9 +27,9 @@ Route::get('/update_food/{id}',[AdminController::class,'update_food']);
 Route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
 Route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('/my_cart',[HomeController::class,'my_cart']);
-// Route::get('/homee',[HomeController::class,'my_home']);
+#Route::get('/home',[HomeController::class,'home']);
 
-
+Route::get('/orders',[AdminController::class,'orders']);
 
 
 Route::post('/book_table',[HomeController::class,'book_table']);
