@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Order;
+
+use App\Models\Book;
+
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -30,7 +34,15 @@ class HomeController extends Controller
             }
             else
             {
-                return view("admin.index");
+                $total_user = User::where('usertype','=','user')->count();
+
+                $total_food = Food::count();
+
+                $total_order = Order::count();
+
+                $total_delivered = Order::where('delivery_status','=','Delivered')->count();
+
+                return view("admin.index",compact('total_user','total_food','total_order','total_delivered'));
             }
         }
     }
@@ -79,4 +91,22 @@ class HomeController extends Controller
     public function home(){
         return view('home.index');
     }
+
+
+    public function book_table(Request $request)
+    {
+        $data = new Book;
+
+        $data->phone = $request->phone;
+        $data->guest = $request->n_guest;
+        $data->date = $request->date;
+        $data->time = $request->time;
+
+        $data->save();
+
+        return redirect()->back();
+    }
+
+
+
 }
