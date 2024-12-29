@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Order;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -70,9 +71,36 @@ class HomeController extends Controller
     }
 
     public function my_cart(){
-        return view('home.my_cart');
+        $user_id = Auth()->user()->id;  
+        $data = Cart::where('user_id','=',($user_id->get()));
+        return view('home.my_cart',compact('data'));
     }
     public function home(){
         return view('home.index');
+    }
+    public function remove_cart($id){
+        $data = Cart::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+    public function confirm_order(Request $request){
+        $user_id = Auth()->user()->id;
+        $cart = Cart::where('user_id','=',($user_id->get()));
+        foreach($cart as $data){
+            $order = new Order;
+            $order->name = $request->name;
+            $order->email = $request->email;
+            $order->phone = $request->phone;
+            $order->address = $request->address;
+            $order->title = $data->title;
+            $order->quantity = $data->quantity;
+            $order->price = $data->price;
+            $order->image = $data->image;
+            $order->save();
+            $data=Cart::find($cart->id);
+            $data->delete();
+        }
+        
+        return redirect()->back();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Order;
+
 
 
 class AdminController extends Controller
@@ -66,5 +68,33 @@ class AdminController extends Controller
         return redirect()->back();
 
 
+    }
+    public function orders()
+    {
+        $data = Order::all();
+        return view('admin.orders',compact('data'));
+    
+    
+    }
+    public function on_the_way($id)
+    {
+        $data = Order::find($id);
+        $data->delivery_status = 'on the way';
+        $data->save();
+        return redirect()->back();
+    }
+    public function delivered($id)
+    {
+        $data = Order::find($id);
+        $data->delivery_status = 'Delivered';
+        $data->save();
+        return redirect()->back();
+    }
+    public function canceled($id)
+    {
+        $data = Order::find($id);
+        $data->delivery_status = 'Canceled';
+        $data->save();
+        return redirect()->back();
     }
 }
