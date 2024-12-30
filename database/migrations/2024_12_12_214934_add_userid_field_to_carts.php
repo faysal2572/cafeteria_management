@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->string('userid')->nullable()->after('price');
-        });
+        // Migration removed as user_id column already exists in create_carts_table migration
     }
 
     /**
@@ -21,8 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->dropColumn('userid');
-        });
+        // No action needed
     }
 };
